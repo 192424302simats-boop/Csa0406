@@ -21,7 +21,7 @@ START
 Call fork() and store the returned value in pid
 IF pid < 0 THEN
     Display "Process creation failed"
-ELSE IF pid == 0 
+ELSE IF pid == 0 THEN
     Display "Child Process"
     Display "Child PID = ", getpid()
     Display "Parent PID = ", getppid()
