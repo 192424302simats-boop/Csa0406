@@ -34,12 +34,11 @@ STOP
 
 QUESTION (2).
 (a)System Calls Required
-| Operation     | System Call                                 |
-| ------------- | ---------------------------.---------------- |
-| File creation | `open()` (with `O_CREAT` flag) or `creat()` |
-| File writing  | `write()`                                   |
-| File reading  | `read()`                                    |
-| File closing  | `close()`                                   |
+ (Operation)       (System Call)                                 
+ 1.File creation   `open()` (with `O_CREAT` flag) or `creat()` 
+ 2.File writing    `write()`                                   
+ 3.File reading    `read()`                                    
+ 4.File closing    `close()`                                   
 (b) Purpose of Any Two File Management System Calls
 open()
 Opens an existing file or creates a new file (when used with the O_CREAT flag) and returns a file descriptor.
@@ -59,13 +58,12 @@ STOP
 
 QUESTION (3).
 (a) System Calls Required
-| Operation                    | System Call                            |
-| ---------------------------- | -------------------------------------- |
-| Open source file             | `open()`                               |
-| Create/Open destination file | `open()` (with `O_CREAT`) or `creat()` |
-| Read data                    | `read()`                               |
-| Write data                   | `write()`                              |
-| Close files                  | `close()`                              |
+  (Operation)                     (System Call)                           
+ 1.Open source file               `open()`                               
+ 2.Create/Open destination file   `open()` (with `O_CREAT`) or `creat()` 
+ 3.Read data                      `read()`                               
+ 4.Write data                     `write()`                              
+ 5.Close files                    `close()`                              
 (b) Purpose of Any Two System Calls
 1.read()
 Reads data from the source file into a memory buffer.
