@@ -1,0 +1,81 @@
+Name:S.Ram charan
+Reg No: 192424302
+COURSE:OPERATING SYSTEM
+CODE:CSA0406
+
+
+Q1. Deadlock Debugging
+Exact Condition
+Deadlock occurs due to circular wait.
+
+* P1 locks R1 and waits for R2.
+* P2 locks R2 and waits for R1.
+* Both wait forever.
+Cycle:
+`P1 → R2 → P2 → R1 → P1`
+Optimization
+Use a **fixed locking order** for both processes.
+Example:
+lock(R1) → lock(R2)
+Both P1 and P2 must acquire **R1 before R2**. This removes circular wait and prevents deadlock.
+
+Q2. CPU Utilization Problem
+Cause
+Low CPU utilization is caused by frequent I/O waiting.
+Processes repeatedly move:
+Ready → Waiting → Ready
+So, the CPU becomes idle while processes wait for I/O.
+Optimization
+* Use efficient I/O buffering and asynchronous I/O.
+* Schedule other ready processes while one process waits for I/O.
+This keeps the CPU busy and improves utilization.
+
+  
+Q3. Memory Bottleneck Debugging
+Memory Calculation
+* Heap = 150 MB
+* Stack = 1 MB × 25 = 25 MB
+* Code = 5 MB
+
+Total approximately:
+[
+150+25+5=\boxed{180\ MB}
+]
+RAM = 2 GB, so total memory capacity is not the main problem.
+Issue
+Frequent page faults may be caused by **poor memory locality** and excessive thread activity, causing working sets to compete for memory/cache.
+Optimizations
+
+1. Reduce unnecessary threads and use a thread pool.
+2. Improve memory locality and reduce unnecessary heap allocation.
+
+
+Q4. Starvation Debugging
+Root Cause
+P5 belongs to Q3 (Batch), the lowest-priority queue.
+Higher-priority queues Q1 and Q2 continuously receive processes, so Q3 may never get CPU time.
+This causes starvation.
+Optimization
+Use Aging.
+Gradually increase the priority of processes that have waited for a long time.
+Example:
+`Long waiting time → Increase priority → P5 gets CPU`
+This ensures **fairness** and prevents starvation.
+
+Q5.Context-Switch Overhead Debugging
+Why is Context Switching High?
+* Quantum = 1 ms, which is very small.
+* Average thread burst = 2 ms.
+* Threads are frequently preempted after 1 ms.
+* Very high I/O waiting causes additional scheduling activity.
+Therefore, the system performs excessive context switches, increasing overhead.
+Two Optimizations
+1. Increase Time Quantum
+Change quantum from 1 ms to 2–5 ms where appropriate.
+This reduces unnecessary preemption and context switches.
+2. Optimize I/O Waiting
+Use asynchronous I/O, buffering, and efficient I/O scheduling to reduce frequent waiting and wake-ups.
+Conclusion
+A slightly larger quantum + reduced I/O waiting can significantly reduce context-switch overhead and improve overall system performance.
+
+  
