@@ -6,7 +6,7 @@ REG NO:192424302
 
 1. Optimized Linux File System Layout for 50 GB Server
 A separate partition should be allocated for logs to prevent disk exhaustion.
-boot – 1 GB
+/boot – 1 GB
 / – 8 GB
 /var/log – 10 GB
 /home – 10 GB
