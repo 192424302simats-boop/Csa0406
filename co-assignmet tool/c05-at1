@@ -27,7 +27,6 @@ Monitor disk and inode usage.
 Configure systemd journal limits if required.
 
 2.Kernel-Level Optimization for High CPU Workloads
-Frequent context switching reduces CPU performance because the processor spends more time switching between processes instead of executing useful work. Since hardware upgrades are not possible, kernel-level optimization should be used.
 The following techniques can improve performance:
 CPU Affinity: Assign CPU-intensive processes to specific CPU cores to reduce unnecessary CPU migration.
 Scheduler Tuning: Adjust process priorities so that important applications receive CPU time first.
@@ -39,9 +38,6 @@ Disable Unnecessary Services: Stop services that are not required because they c
 Kernel Parameter Tuning: Appropriate kernel parameters can be adjusted to improve scheduling and system responsiveness.
 
 3.Processing 1 Million Log Entries Using Shell Scripting
-Processing one million log entries per day requires an efficient method because processing every line individually can take a long time.
-The best approach is to use AWK because it can process the entire log file in a single pass.
-For example, AWK can be used to count ERROR, WARNING and INFO messages from the log file.
 A suitable shell script can perform the following operations:
 Check whether the log file exists.
 Read the file using AWK.
@@ -54,11 +50,9 @@ It avoids unnecessary process creation.
 It can filter, count and extract fields efficiently.
 It is suitable for processing millions of records.
 It is faster than using shell loops for every log entry.
-Unnecessary commands and repeated processing should be avoided. For example, using a loop to execute separate commands for every log entry creates significant overhead.
-The execution time should be measured and the script should be optimized so that it completes within the required 2 minutes.
+Used and the script should be optimized so that it completes within the required 2 minutes.
 
 4. Managing a Faulty Process Consuming 90% CPU
-A faulty process consuming 90% CPU can affect the performance of other services. Since the system cannot be restarted, the process must be controlled without affecting critical services.
 The process management strategy is:
 Identify the Process: Use tools such as top or ps to identify the process consuming excessive CPU.
 Monitor the Process: Continuously monitor the process to determine whether the CPU usage remains high.
